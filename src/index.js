@@ -1,17 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import CommentDetail from "./CommentDetail";
+import faker from "faker";
 
 const App = () => {
-    const buttonText = {text: 'Click'};
-    const labelText = 'Enter name:';
+  return (
+    <div className="ui container comments">
+      <CommentDetail
+        author="Sam"
+        authorAvatar={faker.image.avatar()}
+        date="Today at 6:00PM"
+        content="Nice blog post!"
+      />
+      <CommentDetail
+        author="Alex"
+        authorAvatar={faker.image.avatar()}
+        date="Yesterday at 7:00AM"
+        content="Nice post!"
+      />
+      <CommentDetail
+        author="Jane"
+        authorAvatar={faker.image.avatar()}
+        date="Yesterday at 3:45PM"
+        content="I like this writing."
+      />
+    </div>
+  );
+};
 
-    return ( 
-        <div>
-            <label className="label" htmlFor="name">{labelText}</label>
-            <input id="name" type="text"/>
-            <button style={{backgroundColor: 'blue', color: 'white'}}>{buttonText.text}</button>
-        </div>
-    );
-}
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+ReactDOM.render(<App />, document.getElementById("root"));
